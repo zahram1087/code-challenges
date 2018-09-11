@@ -32,11 +32,13 @@ const pushIntoSecond = (arr) => {
 
 const addBonusPoints = (arr) => {
   // Solution code here...
-  arrScore = [];
-  for (let i = 0; i<arr.length;i++){
-    arrScore.push(5);
+  const score = [];
+  for (let value of arr){
+    value +=5;
+    score.push(value);
+
   }
-  return arrScore;
+  return score;
 }
 
 // ------------------------------------------------------------------------------------------------
