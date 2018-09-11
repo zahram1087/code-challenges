@@ -53,6 +53,13 @@ const addBonusPoints = (arr) => {
 
 const addCurve = (arr) => {
   // Solution code here...
+  const curved = [];
+  for(let value in arr){
+    arr[value] *=1.05;
+
+    curved.push(arr[value]);
+  } 
+  return curved;
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -66,10 +73,15 @@ const addCurve = (arr) => {
 
 const greeting = (word) => {
   // Solution code here...
+  const str = word;
+  return str.toUpperCase();
 }
+
 
 const speaker = (message, callback) => {
   // Solution code here...
+  const str = callback(message);
+  return str;   
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -91,10 +103,24 @@ const speaker = (message, callback) => {
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr;
+  const num =value;
+  arr.push(num);
+  return arr;
+  
 }
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+arr;
+const addNum= num;
+arr.push(addNum);
+times;
+const arrValues = callback(num);
+times++;
+returnarrValues; 
+callback(); 
+  
 }
 
 // ------------------------------------------------------------------------------------------------
@@ -207,28 +233,28 @@ describe('Testing challenge 2', () => {
   });
 });
 
-// describe('Testing challenge 3', () => {
-//   test('It should increase each raw score by 5%', () => {
-//     const resultScores = addCurve([55, 79, 100, 85, 92]);
-//     const expectedScores = [ 57.75, 82.95, 105, 89.25, 96.60000000000001 ];
-//     for (let i in expectedScores) {
-//       expect(resultScores[i]).toBeCloseTo(expectedScores[i]);
-//     }
-//   });
-// });
+describe('Testing challenge 3', () => {
+  test('It should increase each raw score by 5%', () => {
+    const resultScores = addCurve([55, 79, 100, 85, 92]);
+    const expectedScores = [ 57.75, 82.95, 105, 89.25, 96.60000000000001 ];
+    for (let i in expectedScores) {
+      expect(resultScores[i]).toBeCloseTo(expectedScores[i]);
+    }
+  });
+});
 
-// describe('Testing challenge 4', () => {
-//   test('It should return the message with all uppercase characters', () => {
-//     expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should return the message with all uppercase characters', () => {
+    expect(speaker('hello 301 students!', greeting)).toStrictEqual('HELLO 301 STUDENTS!');
+  });
+});
 
 // describe('Testing challenge 5', () => {
-//   test('It should add the number 8 to the array five times', () => {
-//     expect(addNumbers(8, [], 5, addValues)).toStrictEqual([ 8, 8, 8, 8, 8 ]);
-//     expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
-//   });
-// });
+  test('It should add the number 8 to the array five times', () => {
+    expect(addNumbers(8, [], 5, addValues)).toStrictEqual([ 8, 8, 8, 8, 8 ]);
+    expect(addNumbers(8, [], 5, addValues).length).toStrictEqual(5);
+  });
+});
 
 // describe('Testing challenge 6', () => {
 //   test('It should remove three elements from the array', () => {
