@@ -17,8 +17,8 @@ const howMuchPencil = (str) => {
   let result = [];
   
   // Solution code here...
-  for (let i = 0; i<str.length; i++){
-   let g = str.slice(0, -1);
+  for (let i = 0; i<str.length+1; i++){
+   let g = str.slice(i);
     result.push(g);
   }
   return result;
@@ -153,10 +153,11 @@ const removeEvenValues = (arr) => {
   
   for (let i = 0; i < arr.length; ++i) { 
       if ((arr[i] % 2) === 0) {
-        arr.splice(i+1, 1);
-        arr.join('');
+        arr.splice(i, 1);
+        i --;
+        // arr.join('');
       }
-      // but I ned (i,1) to get 135
+     
   }
 // return arr;
  
@@ -217,14 +218,14 @@ Run your tests from the console: jest challenges-05.test.js
 
 ------------------------------------------------------------------------*/
 
-// describe('Testing challenge 1', () => {
-//   test('It should return a list of shortening words', () => {
-//     expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
-//     expect(howMuchPencil('Welcome').length).toStrictEqual(8);
-//     expect(howMuchPencil('')).toStrictEqual(['']);
-//     expect(howMuchPencil('abc')).toStrictEqual(['abc', 'bc', 'c', '']);
-//   });
-// });
+describe('Testing challenge 1', () => {
+  test('It should return a list of shortening words', () => {
+    expect(howMuchPencil('Welcome')).toStrictEqual(['Welcome', 'elcome', 'lcome', 'come', 'ome', 'me', 'e', '']);
+    expect(howMuchPencil('Welcome').length).toStrictEqual(8);
+    expect(howMuchPencil('')).toStrictEqual(['']);
+    expect(howMuchPencil('abc')).toStrictEqual(['abc', 'bc', 'c', '']);
+  });
+});
 
 describe('Testing challenge 2', () => {
   test('It should return an array of individual letters', () => {
