@@ -77,7 +77,7 @@ const citiesAtoJ = (cities) => {
 const matchMonth = (input) => {
   // Solution code here...
 
- if( (input.match(/(oct)|(October)|(Oct)|(october)/g))){
+ if(input.match(/\b(oct|October|Oct|october)\b/g)){
    return true;
  }else {
    return false;
