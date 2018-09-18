@@ -71,6 +71,7 @@ let characters = [
 
 const totalCharacters = (arr) => {
   // Solution code here...
+  return Object.keys(arr).length;
 }
 
 /*------------------------------------------------------------------------------------------------
@@ -82,6 +83,10 @@ Write a function named getHouses that returns a new array containing the names o
 const getHouses = (arr) => {
   let houses = [];
   // Solution code here...
+  for(let elem of arr){
+  let home = elem.house
+  houses.push(home);
+  }
   return houses;
 }
 
@@ -98,8 +103,24 @@ hasChildrenValues(characters, 'Eddard') will return false
 ------------------------------------------------------------------------------------------------*/
 
 const hasChildrenValues = (arr, character) => {
+  
   // Solution code here...
+let arrValues = Object.values(arr);
+let trueOrfalse = false;
+
+for (let i = 0; i<arr.length; i++){
+  if(arr[i].name === character){
+    if(arr[i].children.length >0)
+    return true;
+  }
+    if(arr[i].children.length === 0){
+    return false;
+    }
+  }
 }
+
+ 
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -170,28 +191,28 @@ describe('Testing challenge 1', () => {
   });
 });
 
-// describe('Testing challenge 2', () => {
-//   test('something specific', () => {
-//     expect(totalCharacters(characters)).toStrictEqual(7);
-//   });
-// });
+describe('Testing challenge 2', () => {
+  test('something specific', () => {
+    expect(totalCharacters(characters)).toStrictEqual(7);
+  });
+});
 
-// describe('Testing challenge 3', () => {
-//   test('something specific', () => {
-//     expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
-//     expect(getHouses(characters).length).toStrictEqual(7);
-//   });
-// });
+describe('Testing challenge 3', () => {
+  test('something specific', () => {
+    expect(getHouses(characters)).toStrictEqual([ 'Stark', 'Arryn', 'Lannister', 'Targaryen', 'Tyrell', 'Stark', 'Snow' ]);
+    expect(getHouses(characters).length).toStrictEqual(7);
+  });
+});
 
-// describe('Testing challenge 4', () => {
-//   test('It should return true for characters that have children', () => {
-//     expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
-//   });
+describe('Testing challenge 4', () => {
+  test('It should return true for characters that have children', () => {
+    expect(hasChildrenValues(characters, 'Daenarys')).toBeTruthy();
+  });
 
-//   test('It should return false to characters who do not have children', () => {
-//     expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
-//   });
-// });
+  test('It should return false to characters who do not have children', () => {
+    expect(hasChildrenValues(characters, 'Sansa')).toBeFalsy();
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should return true for characters that have children', () => {
