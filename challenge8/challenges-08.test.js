@@ -183,19 +183,21 @@ For example: evenOddNumericValues(['Gregor', 2, 4, 1]) returns ['even', 'even', 
 
 const evenOddNumericValues = (input) => {
   // Solution code here...
-  const g = input.filter(idx =>{
-    return  typeof idx === 'number';
+
+  return input.filter(idx => typeof idx === 'number').map(idx => idx % 2 === 0 ? 'even' : 'odd');
+//   const g = input.filter(idx =>{
+//     return  typeof idx === 'number';
      
-   })
+//    })
     
-      const b = g.map(idx =>{
-       if( idx % 2 === 0){
-         return 'even';
-       }else if (idx % 2 !==0){
-         return 'odd';
-       }
-      });
- return b;
+//       const b = g.map(idx =>{
+//        if( idx % 2 === 0){
+//          return 'even';
+//        }else if (idx % 2 !==0){
+//          return 'odd';
+//        }
+//       });
+//  return b;
   
 };
 
