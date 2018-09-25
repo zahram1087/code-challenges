@@ -75,7 +75,7 @@ Return either true or false.
 
 const validatePhoneNumber = (phoneNumber) => {
   // Solution code here...
-  var format = /^(\([0-9]{3}\) [0-9]{3}-)[0-9]{4}/;
+  var format = /^([0-9]{3}|\([0-9]{3}\))(\s|-)?[0-9]{3}(\s|-)?[0-9]{4}$/;
   var givenNumber = phoneNumber.match(format);
   if (givenNumber) {
   return true;
