@@ -29,8 +29,8 @@ const firstLetters = (strs) => {
 
 const findHappiness = (strs) => {
   // Solution code here...
-  return strs.map(idx =>{
-    if(idx.includes(':')===true){ 
+  return strs.filter(idx =>{
+    if(idx.includes(':)')){ 
       return idx;
       }
     
@@ -59,6 +59,13 @@ const standardizePhoneNumbers = (phoneNumbers) => {
 
 const onlyOddChars = (str) => {
   // Solution code here...
+
+  return strs.map(idx =>{
+    if(idx.chartAt(idx % 2 === 0)){ 
+      return idx;
+      }
+    
+    })
 };
 
 // ------------------------------------------------------------------------------------------------
@@ -195,14 +202,14 @@ describe('Testing challenge 2', () => {
 //   });
 // });
 
-// describe('Testing challenge 4', () => {
-//   test('It should only return the odd indexed characters from the string', () => {
-//     expect(onlyOddChars('0123456789')).toStrictEqual('13579');
-//     expect(onlyOddChars('abcd')).toStrictEqual('bd');
-//     expect(onlyOddChars('a')).toStrictEqual('');
-//     expect(onlyOddChars('')).toStrictEqual('');
-//   });
-// });
+describe('Testing challenge 4', () => {
+  test('It should only return the odd indexed characters from the string', () => {
+    expect(onlyOddChars('0123456789')).toStrictEqual('13579');
+    expect(onlyOddChars('abcd')).toStrictEqual('bd');
+    expect(onlyOddChars('a')).toStrictEqual('');
+    expect(onlyOddChars('')).toStrictEqual('');
+  });
+});
 
 // describe('Testing challenge 5', () => {
 //   test('It should correctly assess whether all the strings are happy', () => {
